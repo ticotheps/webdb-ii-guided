@@ -39,8 +39,22 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // add a role to the database
-  res.send('Write code to add a role');
+  // get back an array with the last id generated: [ 3 ]
+  db('roles')
+    .insert(req.body)
+    .then(ids => {
+      const id = ids[0];
+
+      db('roles')
+      .where({ id })
+      .first() // this makes sure that we're only grabbing the FIRST element that matches our conditions
+      .then(role => {
+        res.status(200).json(role);
+      });
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });  
 });
 
 router.put('/:id', (req, res) => {
