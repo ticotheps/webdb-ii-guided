@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const knex = require('knex');
 
 router.get('/', (req, res) => {
   // get the roles from the database
