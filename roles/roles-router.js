@@ -5,7 +5,7 @@ const knexConfig = { // Step 2: Configure the library being used
   client: 'sqlite3', // this is the driver
   useNullAsDefault: true,
   connection: {
-    filename: '../data/roles.db3' // this is the relative path to the db file
+    filename: './data/roles.db3' // this is the relative path to the db file
   },
 };
 
@@ -19,8 +19,6 @@ router.get('/', (req, res) => {
   .catch(error => {
     res.status(500).json(error);
   });
-  // get the roles from the database
-  res.send('Write code to retrieve all roles');
 });
 
 router.get('/:id', (req, res) => {
