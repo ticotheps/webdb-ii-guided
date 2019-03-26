@@ -2,8 +2,12 @@ const router = require('express').Router();
 const knex = require('knex');
 
 const knexConfig = {
-  client: 'sqlite3'
-}
+  client: 'sqlite3',
+  useNullAsDefault: true,
+  connection: {
+    filename: '../data/roles.db3'
+  },
+};
 
 const db = knex(knexConfig);
 
