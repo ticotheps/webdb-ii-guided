@@ -5,7 +5,7 @@ const knexConfig = { // Step 2: Configure the knexjs library being used
   client: 'sqlite3', // this is the driver
   useNullAsDefault: true,
   connection: {
-    filename: './data/roles.db3' // this is the relative path to the db file
+    filename: './Data/roles.db3' // this is the relative path to the db file
   },
 };
 
