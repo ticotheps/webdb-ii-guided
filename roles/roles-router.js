@@ -23,8 +23,17 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+  const { id } = req.params;
+
   // retrieve a role by id
-  res.send('Write code to retrieve a role by id');
+  db('roles')
+    .where({ id })
+    .first() // this makes sure that we're only grabbing the FIRST element that matches our conditions
+    .then(role => {
+      res.status(200).json(role);
+    }).catch(error => {
+      res.status(500).json(error);
+    });
 });
 
 router.post('/', (req, res) => {
