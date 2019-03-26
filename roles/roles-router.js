@@ -82,7 +82,7 @@ router.delete("/:id", (req, res) => {
     .del()
     .then(count => {
       if (count > 0) {
-        res.status(204).end();
+        res.status(204).json(count);
       } else {
         res.status(404).json({ message: "Record not found" });
       }
