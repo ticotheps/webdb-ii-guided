@@ -7,6 +7,7 @@ const knexConfig = { // Step 2: Configure the knexjs library being used
   connection: {
     filename: './data/roles.db3' // this is the relative path to the db file
   },
+  debug: true,
 };
 
 const db = knex(knexConfig); // Step 3: Set the 'knex(knexConfig)' to a variable called 'db'
